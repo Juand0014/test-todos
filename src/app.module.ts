@@ -1,7 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { TodosModule } from './todos/todos.module';
+import { TodosModule } from './todos/modules/todos.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
@@ -10,8 +8,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     database: 'todos',
     entities: [__dirname + '/**/*.entity{.ts,.js}'],
     synchronize: true,
-  }),],
-  controllers: [AppController],
-  providers: [AppService],
+  }),]
 })
 export class AppModule {}

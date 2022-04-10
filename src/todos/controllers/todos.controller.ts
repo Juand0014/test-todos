@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-import { Todos } from '../todos.entity';
-import { TodosService } from './todos.service';
+import { Todos } from '../entity/todos.entity';
+import { TodosService } from '../services/todos.service';
 import { Post,Put, Delete, Body, Param } from  '@nestjs/common';
 
 @Controller('todos')
