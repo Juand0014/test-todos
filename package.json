@@ -1,0 +1,24 @@
+{
+  "name": "test-todos",
+  "version": "1.0.0",
+  "description": "Project TODOs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently -n \"server,client\" -c 'black.bgGreen,white.bgBlue' \"cd server && npm run start:dev\" \"cd client && npm run start\"",
+    "ipkgs": "npm i && concurrently -n \"root-pkgs,server-pkgs,client-pkgs\" -c 'red,green,blue' \"npm i\" \"cd server && npm i\" \"cd client && npm i\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juand0014/test-todos.git"
+  },
+  "author": "Juan David Matos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Juand0014/test-todos/issues"
+  },
+  "homepage": "https://github.com/Juand0014/test-todos#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  }
+}
