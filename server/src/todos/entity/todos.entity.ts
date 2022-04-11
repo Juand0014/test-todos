@@ -1,11 +1,11 @@
 import { Entity, Column,  } from "typeorm";
 import { IsEnum, IsNotEmpty } from 'class-validator';
-import { baseEntity } from "src/base.entity";
+import { BaseEntity } from "src/BaseEntity";
 import { PriorityEnum } from "src/enums/priority.enum";
 import { StatusEnum } from "src/enums/status.enum";
 
 @Entity()
-export class Todos extends baseEntity {
+export class Todos extends BaseEntity {
 
 	@IsNotEmpty( { message: 'Title is required' } )
 	@Column()
