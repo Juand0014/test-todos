@@ -1,8 +1,8 @@
 import { Entity, Column,  } from "typeorm";
 import { IsEnum, IsNotEmpty } from 'class-validator';
-import { BaseEntity } from "src/BaseEntity";
-import { PriorityEnum } from "src/enums/priority.enum";
-import { StatusEnum } from "src/enums/status.enum";
+import { BaseEntity } from "../../BaseEntity";
+import { PriorityEnum } from "../../enums/priority.enum";
+import { StatusEnum } from "../../enums/status.enum";
 
 @Entity()
 export class Todos extends BaseEntity {

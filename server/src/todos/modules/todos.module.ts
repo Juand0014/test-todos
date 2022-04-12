@@ -9,6 +9,8 @@ import { Todos } from '../entity/todos.entity';
     TypeOrmModule.forFeature([Todos])
   ],
   providers: [TodosService],
-  controllers: [TodosController]
+  exports: [TodosService],
+  controllers: [TodosController],
+
 })
 export class TodosModule {}

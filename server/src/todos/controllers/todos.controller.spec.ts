@@ -1,18 +1,24 @@
-import { Test, TestingModule } from '@nestjs/testing';
+/*
+https://docs.nestjs.com/fundamentals/testing#unit-testing
+*/
+
+import { Test } from '@nestjs/testing';
 import { TodosController } from './todos.controller';
 
 describe('TodosController', () => {
-  let controller: TodosController;
+  let todosController: TodosController;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [TodosController],
+    const moduleRef = await Test.createTestingModule({
+      imports: [ Test ],
+      controllers: [ TodosController ],
+      providers: [],
     }).compile();
 
-    controller = module.get<TodosController>(TodosController);
+    todosController = moduleRef.get<TodosController>(TodosController);
   });
 
   it('should be defined', () => {
-    expect(controller).toBeDefined();
+    expect(todosController).toBeDefined();
   });
 });

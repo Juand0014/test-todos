@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<div class="container mt-3">
+	<div class="row">
+		<h2 class="pb-4">Task</h2>
+	</div>
+	<div class="row">
+		<div class="col-3 col-md-3" *ngFor="let task of tasks">
+			<app-card [data]="task"></app-card>
+		</div>
+	</div>
+</div>

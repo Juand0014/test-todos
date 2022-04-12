@@ -8,16 +8,20 @@ import { StatusEnum } from 'src/enums/status.enum';
 @Injectable()
 export class TodosService {
 	constructor(
-		@InjectRepository(Todos)
-		private todosRepository: Repository<Todos>
+		@InjectRepository(Todos) private todosRepository: Repository<Todos>
 	) {}
 
 	async findAll(): Promise<Todos[]> {
-		return await this.todosRepository.find();
+		return await this.todosRepository.find({
+			order: {
+				priority: 'ASC',
+				title: 'ASC'
+			}
+		});
 	}
 
-	async findOne(id: number): Promise<Todos> {
-		return await this.todosRepository.findOne(id);
+	async findOne(params: number | string): Promise<Todos> {
+		return await this.todosRepository.findOne(params);
 	}
 
 	async create(todos: Todos): Promise<Todos> {
@@ -58,5 +62,9 @@ export class TodosService {
 
 	async findByTitleAndPriority(title: string, priority: PriorityEnum): Promise<Todos[]> {
 		return await this.todosRepository.find({ title, priority });
+	}
+
+	async findByAnyProperty(property: string, value: string): Promise<Todos[]> {
+		return await this.todosRepository.find({ [property]: value });
 	}
 }
