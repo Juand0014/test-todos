@@ -3,4 +3,6 @@ export interface ITask {
 	description: string;
 	priority: number;
 	status: number;
+	createAt?: number;
+	updateAt?: number;
 }

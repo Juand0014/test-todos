@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
     this.taskService.getTasks().subscribe({
       next: (data) => {
         this.tasks = data
+        console.log(data);
       },
       error: (err) => {
         console.log(err);

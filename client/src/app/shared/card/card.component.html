@@ -8,6 +8,6 @@
 		</div>
 	</div>
 	<div class="card-footer">
-		<small class="text-muted">Last updated 3 mins ago {{task.priority}}</small>
+		<small class="text-muted">{{!!task.updateAt ? task.updateAt : task.createAt}}{{task.priority}}</small>
 	</div>
 </div>

@@ -19,4 +19,7 @@ export class TaskService {
     return this.http.post<ITask>(`${environment.url}todos/create`, task);
   }
   
+  updateTask(task: ITask) {
+    return this.http.put<ITask>(`${environment.url}todos/update`, task);
+  }
 }
