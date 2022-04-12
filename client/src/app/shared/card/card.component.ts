@@ -9,6 +9,8 @@ import { ITask } from '../models/task/task.model';
 export class CardComponent implements OnInit {
 
   @Input('data') task: ITask;
+  statusEnums: string[] = ["", "Open", "In Progress", "Closed"];
+  priorityEnums: string[] = [ "", "Low", "Medium", "High"];
 
   constructor() {
     this.task = {
@@ -17,6 +19,7 @@ export class CardComponent implements OnInit {
       priority: 0,
       status: 0,
     };
+
   }
 
   ngOnInit() {}
