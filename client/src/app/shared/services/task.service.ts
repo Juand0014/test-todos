@@ -22,4 +22,8 @@ export class TaskService {
   updateTask(task: ITask) {
     return this.http.put<ITask>(`${environment.url}todos/update`, task);
   }
+
+  filterTaskByAnyProperty(property: string, value: string) {
+    return this.http.get<ITask[]>(`${environment.url}todos/getForAnyProperty/${property}/${value}`);
+  }
 }

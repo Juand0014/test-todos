@@ -40,30 +40,6 @@ export class TodosService {
 		return await this.todosRepository.delete({});
 	}
 
-	async findByTitle(title: string): Promise<Todos[]> {
-		return await this.todosRepository.find({ title });
-	}
-
-	async findByDescription(description: string): Promise<Todos[]> {
-		return await this.todosRepository.find({ description });
-	}
-
-	async findByPriority(priority: PriorityEnum): Promise<Todos[]> {
-		return await this.todosRepository.find({ priority });
-	}
-
-	async findByStatus(status: StatusEnum): Promise<Todos[]> {
-		return await this.todosRepository.find({ status });
-	}
-
-	async findByTitleAndDescription(title: string, description: string): Promise<Todos[]> {
-		return await this.todosRepository.find({ title, description });
-	}
-
-	async findByTitleAndPriority(title: string, priority: PriorityEnum): Promise<Todos[]> {
-		return await this.todosRepository.find({ title, priority });
-	}
-
 	async findByAnyProperty(property: string, value: string): Promise<Todos[]> {
 		return await this.todosRepository.find({ [property]: value });
 	}

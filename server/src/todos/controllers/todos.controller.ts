@@ -19,9 +19,17 @@ export class TodosController {
 		return await this.todoService.create(todoData);
 	}
 
-	@Get(':title')
-	async findByTitle(@Param('title') title: string): Promise<Todos[]> {
-		return await this.todoService.findByTitle(title);
+	
+	@Delete('delete/:id')
+	async delete(@Param('id') id: number): Promise<DeleteResult> {
+		let result = await this.todoService.delete(id);
+		return result
+	}
+	
+	@Put('update/:id')
+	async update(@Param('id') id: number, @Body() todoData: Todos): Promise<UpdateResult> {
+		todoData.updatedAt = new Date();
+		return await this.todoService.update(id, todoData);
 	}
 
 	@Get('getForAnyProperty/:Property/:Value')
@@ -33,15 +41,9 @@ export class TodosController {
 		return await this.todoService.findByAnyProperty(property, value);
 	}
 
-	@Delete('delete/:id')
-	async delete(@Param('id') id: number): Promise<DeleteResult> {
-		let result = await this.todoService.delete(id);
-		return result
+	@Delete('deleteAll')
+	async deleteAll(): Promise<DeleteResult> {
+		return await this.todoService.deleteAll();
 	}
-
-	@Put('update/:id')
-	async update(@Param('id') id: number, @Body() todoData: Todos): Promise<UpdateResult> {
-		todoData.updatedAt = new Date();
-		return await this.todoService.update(id, todoData);
-	}
+	
 }

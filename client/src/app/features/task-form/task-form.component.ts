@@ -42,7 +42,6 @@ export class TaskFormComponent implements OnInit {
     debugger;
     this.taskService.createTask(data).subscribe({
       next: (data) => {
-        console.log(data);
         this.router.navigate(['/']);
         console.log('Task created successfully');
       },

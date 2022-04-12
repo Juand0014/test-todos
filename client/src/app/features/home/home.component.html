@@ -3,7 +3,22 @@
 	<div class="row">
 		<h2 class="pb-4">Task</h2>
 	</div>
+	<form [formGroup]="filterForm" class="d-flex mb-4">
+	<select formControlName="property" class="form-control">
+		<option disabled value="">Select Property</option>
+		<option value="title">Title</option>
+		<option value="description">Description</option>
+		<option value="priority">Priority</option>
+		<option value="status">Status</option>
+		</select>
+		<input formControlName="value" class="form-control" type="search" placeholder="Search" aria-label="Search">
+		<button class="btn btn-outline-success" type="submit" (click)="onSearch()">Search</button>
+		<button type="button" class="btn btn-outline-primary" (click)="onClear()">Clear</button>
+	</form>
 	<div class="row">
+		<div *ngIf="!tasks.length" class="text-center mt-5">
+			<h4 class="text-warning">No tasks found</h4>
+		</div>
 		<div class="col-3 col-md-3" *ngFor="let task of tasks">
 			<app-card [data]="task"></app-card>
 		</div>
